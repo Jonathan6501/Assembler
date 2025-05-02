@@ -1,0 +1,51 @@
+# Set the minimum required version of CMake
+cmake_minimum_required(VERSION 3.10)
+
+# Set the project name
+project(Assembler)
+
+# Set C compiler
+set(CMAKE_C_COMPILER "gcc")
+
+# Set compiler flags
+set(CMAKE_C_FLAGS "-ansi -Wall -pedantic")
+
+# Include directories (if needed)
+include_directories(${CMAKE_SOURCE_DIR})
+
+# Define sources
+set(SOURCES
+        assembler.c
+        code.c
+        first_pass.c
+        second_pass.c
+        instructions.c
+        table.c
+        utilities.c
+        writefiles.c
+)
+
+# Define headers
+set(HEADERS
+        globals.h
+        code.h
+        first_pass.h
+        second_pass.h
+        instructions.h
+        table.h
+        utilities.h
+        writefiles.h
+)
+
+# Create the executable target
+add_executable(assembler ${SOURCES})
+
+# Link additional libraries (if needed)
+# target_link_libraries(assembler <library_name>)
+
+# If using external dependencies or other build tools:
+# Find external libraries if necessary (e.g., Boost, Threads, etc.)
+
+# Add custom build commands (optional)
+# add_custom_command(TARGET assembler POST_BUILD ...)
+
